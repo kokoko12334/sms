@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h2></h2>
+<h1>주기적으로 Ajax 요청하기</h1>
+	<p id="text"></p>
+	
+<h1>$.ajax() 메소드</h1>
+	<button id="requestBtn">$.ajax() 메소드 실행</button>
+	<p id="text1"></p>
+<script type="text/javascript">
+	// ajax객체 생성
+	var request = new XMLHttpRequest;
+	var currentState = "";
+	// get방식
+	request.open("GET", "/images/dsd.txt", true);
+	request.setRequestHeader("test", "123"); // 헤더 값 설정
+	request.send();
+	//post방식
+	/* request.open("POST", "/images/dsd.txt", true);
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send("city=Seoul&zipcode=06141"); */
+	
+	//onreadystatechange 프로퍼티는 XMLHttpRequest 객체의 readyState 프로퍼티 값이 변할 때마다 자동으로 호출되는 함수를 설정합니다.
+	request.onreadystatechange = function() {
+		 /* - 200 : 서버에 문서가 존재함.
+		 - 404 : 서버에 문서가 존재하지 않음.
+		 */
+		 if (request.readyState == XMLHttpRequest.DONE && request.status == 200 ) {
+			$("h2").html(request.responseText);
+		}
+	};
+	
+	
+	function sendRequest() {
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+				document.getElementById("text").innerHTML = httpRequest.responseText;
+				self.setTimeout("sendRequest()", 500);	// 응답을 받은 후 0.5초 뒤에 다시 Ajax 요청을 보냄.
+			}
+		};
+		httpRequest.open("GET", "/images/dsd.txt");
+		httpRequest.send();
+	}
+	sendRequest();
+	// ajax, jquery이용한 요청
+	$(function(){		
+		$("#requestBtn").on("click", function(){
+			$.ajax({
+				url: "/images/dsd.txt",
+				data:{name: "ko"},
+				type: "get",
+				datatype:"json"
+				
+			}).done(function(json)){
+				$("#test1").html = request.respeonseText;
+			}
+			
+		});
+	
+	});
+
+
+</script>
+</body>
+</html>

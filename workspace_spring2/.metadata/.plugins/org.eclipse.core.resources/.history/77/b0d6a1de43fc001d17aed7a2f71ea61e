@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+
+<script>
+ var a = 1;
+ console.log(a);
+</script>
+</body>
+</html>

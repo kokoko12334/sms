@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+   <p>이제부터 제이쿼리를 다 같이 공부해보죠!!<br>
+
+    마우스로 글씨를 클릭해보세요!!</p>
+
+
+<script>
+$(function() {
+
+    $("p").on("click", function() {
+
+       $("p").css("color", "red");
+
+    });
+
+});
+</script>
+</body>
+</html>

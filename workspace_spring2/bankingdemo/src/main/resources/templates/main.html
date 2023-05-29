@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>main</h2>
+<table class ="table_body">
+	<th>은행</th>
+	<th>계좌번호</th>
+</table>
+
+<button id = "info">정보 조회</button>
+
+
+<script>
+// res_list, user_name
+$(function(){
+	
+	$("#info").on("click", function(){
+		
+		$.ajax({
+			type:"GET",
+			headers:{"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIxMTAxMDMyODIxIiwic2NvcGUiOlsiaW5xdWlyeSIsImxvZ2luIiwidHJhbnNmZXIiXSwiaXNzIjoiaHR0cHM6Ly93d3cub3BlbmJhbmtpbmcub3Iua3IiLCJleHAiOjE2OTI5Njc4MzQsImp0aSI6IjgxMDI2NWYzLTcyZjEtNGNjZC1iODA0LTFjYWY1Yjk5NjUyYiJ9.yPL3rfcjA7tlNFDiiD2eCz_b6Tg6yr_qCSNhZuxmXnU"},
+			url:"https://cors-anywhere.herokuapp.com/https://testapi.openbanking.or.kr/v2.0/user/me",
+			data:{"user_seq_no":"1101032821"},
+			dataType:"json",
+			success: function(data){
+				
+				var result = "";
+				var len = data.res_cnt;
+				console.log(data.res_list[0]);
+				console.log(len);
+				for(var i = 0; i<len; i++){
+					var str = '<TR>';
+					str += '<TD>' + data.res_list[i].bank_name + '</TD>';
+					str += '<TD>' + data.res_list[i].account_alias + '</TD>';
+					str += '</TR>';
+					result += str;
+				}
+				
+                
+            	$('.table_body').append(result);
+				},
+			
+				error:function(){
+				alert("실패");
+				}
+		});
+			
+			
+	});
+		
+	
+	
+});
+
+
+</script>
+
+
+</body>
+</html>

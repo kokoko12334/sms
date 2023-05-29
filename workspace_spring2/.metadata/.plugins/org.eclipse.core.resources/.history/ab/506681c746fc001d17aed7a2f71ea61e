@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+   <p>이제부터 제이쿼리를 다 같이 공부해보죠!!<br>
+
+    마우스로 글씨를 클릭해보세요!!</p>
+
+	<h2 id = "doc" class = "t"></h2>
+	<h2 id = "win" class = "t"></h2>
+	
+<script>
+// $(function() { 제이쿼리코드 } ) 는 자바에서 window.onload = functions(){}과 같은 기능임 즉, 모든 페이지가 로드되고 실행하라는 의미
+$(function() {
+
+    $("p").on("click", function() {
+
+       $("p").css("color", "red");
+
+    });
+    
+    $("#doc").on("click", function(){
+    	$(".t").css("color", "blue");
+    });
+    
+
+});
+
+
+
+$(document).ready( function() {
+
+    $("#doc").text("문서가 전부 로드됐어요!");
+
+});
+
+$(window).load( function() {
+
+    $("#win").text("창이 모두 로드됐어요!");
+
+});
+</script>
+</body>
+</html>

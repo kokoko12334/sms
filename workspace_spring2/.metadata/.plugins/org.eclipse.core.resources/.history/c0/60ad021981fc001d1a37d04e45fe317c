@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h2></h2>
+
+<script type="text/javascript">
+	// ajax객체 생성
+	var request = new XMLHttpRequest;
+	var currentState = "";
+	// get방식
+	request.open("GET", "/examples/media/request_ajax.php?city=Seoul&zipcode=06141", true);
+	request.send();
+	//post방식
+	request.open("POST", "/examples/media/request_ajax.php", true);
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send("city=Seoul&zipcode=06141");
+	
+	
+	request.onreadystatechange = function() {
+		switch (request.readyState) {
+			case XMLHttpRequest.UNSET:
+				currentState += "XMLHttpRequest 객체의 현재 상태는 UNSET 입니다.<br>";
+				break;
+			case XMLHttpRequest.OPENED:
+				currentState += "XMLHttpRequest 객체의 현재 상태는 OPENED 입니다.<br>";
+				break;
+			case XMLHttpRequest.HEADERS_RECEIVED:
+				currentState += "XMLHttpRequest 객체의 현재 상태는 HEADERS_RECEIVED 입니다.<br>";
+				break;
+			case XMLHttpRequest.LOADING:
+				currentState += "XMLHttpRequest 객체의 현재 상태는 LOADING 입니다.<br>";
+				break;
+			case XMLHttpRequest.DONE:
+				currentState += "XMLHttpRequest 객체의 현재 상태는 DONE 입니다.<br>";
+				break;
+		}
+		
+		if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+			$("h2").html(currentState);
+		}
+	};
+	
+	
+	
+	$(function(){		
+	});
+
+
+</script>
+</body>
+</html>

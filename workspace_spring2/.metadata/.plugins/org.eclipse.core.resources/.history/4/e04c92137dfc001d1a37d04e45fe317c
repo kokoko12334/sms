@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Ajax(Asynchronous JavaScript and XML)</h1>
+
+<p id="text">이 단락에 다른 텍스트를 불러와보죠!</p>
+
+<button id="requestBtn">데이터 불러오기!</button>
+
+
+
+<script type="text/javascript">
+
+	$(function(){
+		$("#requestBtn").on("click", function(){
+			
+			$("#text").load("/examples/media/ajax_intro_data.txt");
+			
+		});
+		
+		
+		
+	});
+
+
+</script>
+</body>
+</html>

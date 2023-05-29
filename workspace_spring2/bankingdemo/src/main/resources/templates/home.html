@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 사용자가 인증을 할 수 있도록 오픈뱅킹 사이트를 호출한다. 새창으로 띄운다.. -->
+	<!--  	response_type=code&
+			client_id=86dd1ec4-2394-4815-963f-0e5d2c28428a&
+			redirect_url=http://localhost/requesttoken&
+			scope=login inquiry transfer&
+			state=123456782345678912345678&
+			auth_type=0
+	
+	 -->
+
+	<button onclick="authorization()">오픈뱅킹인증하기</button>
+
+	<script type="text/javascript">
+		function authorization() {
+			var url = "https://testapi.openbanking.or.kr/oauth/2.0/authorize?"
+					+ "response_type=code&"
+					+ "client_id=86dd1ec4-2394-4815-963f-0e5d2c28428a&"
+					+ "redirect_uri=http://localhost/requesttoken&"
+					+ "scope=login inquiry transfer&"
+					+ "state=12345678123456781234567812345678&" + "auth_type=0";
+			window.open(url, "인증하기", "width=400px,height=400px");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>main</h2>
+
+<ul>
+	<li>1 </li>
+	<li> 2</li>
+	<li>3 </li>
+	
+
+</ul>
+<button onclick = "info()">정보 조회</button>
+
+
+<script>
+
+
+
+</script>
+
+
+</body>
+</html>

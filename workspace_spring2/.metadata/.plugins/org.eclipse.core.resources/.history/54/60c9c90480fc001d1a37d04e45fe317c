@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h2></h2>
+
+<script type="text/javascript">
+	
+	var request = new XMLHttpRequest;
+	
+	request.open("GET", "/examples/media/request_ajax.php?city=Seoul&zipcode=06141", true);
+	request.send();
+	request.responseText();
+	$(function(){
+		
+		
+			
+	});
+
+
+</script>
+</body>
+</html>
